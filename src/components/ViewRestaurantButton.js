@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
-import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import Placeholder from '../images/res_placeholder.png';
-import RestaurantView from './RestaurantView';
+import React, { Component } from "react";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import Placeholder from "../images/res_placeholder.png";
+import RestaurantView from "./RestaurantView";
+import "../App.css";
+
 
 class ViewRestaurantButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false,
+      modal: false
     };
 
     this.toggle = this.toggle.bind(this);
@@ -16,7 +18,7 @@ class ViewRestaurantButton extends Component {
   toggle() {
     const { modal } = this.state;
     this.setState({
-      modal: !modal,
+      modal: !modal
     });
   }
 
@@ -25,49 +27,56 @@ class ViewRestaurantButton extends Component {
     const { className } = this.props;
     return (
       <div>
-        <button type="button" className="btn btn-primary" onClick={this.toggle}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={this.toggle}
+          style={{ margin: "5px 5px" }}
+        >
           View Restaurant
         </button>
         <Modal
           isOpen={modal}
           toggle={this.toggle}
-          className={className + ' modal-lg'}>
+          className={className + " modal-lg"}
+        >
           <ModalHeader toggle={this.toggle}>
-            <div style={{ display: 'flex' }}>
+            <div style={{ display: "flex" }}>
               <img
-                style={{ width: '50px' }}
+                style={{ width: "50px" }}
                 src={Placeholder}
                 alt="Card image cap"
+                className="desktop-only"
               />
-              <div style={{ marginLeft: '50px', lineHeight: '50px' }}>
+              <div style={{ marginLeft: "50px", lineHeight: "50px" }}>
                 {this.props.name}
               </div>
             </div>
           </ModalHeader>
           <ModalBody>
-            <RestaurantView address={this.props.address} categories={this.props.categories}/>
+            <RestaurantView
+              address={this.props.address}
+              categories={this.props.categories}
+            />
           </ModalBody>
           <div
             class="modal-footer"
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              justifyContent: 'space-between',
-            }}>
-            <label style={{ fontWeight: 'bold' }} for="footer">
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              justifyContent: "space-between"
+            }}
+          >
+            <label style={{ fontWeight: "bold" }} for="footer">
               Book now:
             </label>
-            <div style={{ display: 'flex', margin: "5px 0"}}>
-              Number of people:
+            <div style={{ display: "grid", gridTemplateColumns: "40% 60%", margin: "10px", gridRowGap: "10px"}}>
+              <label>No. of people:</label>
               <input type="number" class="form-control" id="booking-pax" />
-            </div>
-            <div style={{ display: 'flex', margin: "5px 0"}}>
-              Date:
+              <label>Date:</label>
               <input type="date" class="form-control" id="booking-pax" />
-            </div>
-            <div style={{ display: 'flex', margin: "5px 0"}}>
-              Time:
+              <label>Time</label>
               <input type="time" class="form-control" id="booking-pax" />
             </div>
 

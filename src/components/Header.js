@@ -42,7 +42,7 @@ class Header extends Component {
     if (this.state.user == "") {
       button = <LoginButton login={this.props.login}/>
     } else {
-      button = <button type="button" class="btn btn-light" disabled="true">Welcome, {this.state.user}</button>
+      button = <button type="button" className="btn btn-light" disabled="true">Welcome, {this.state.user}</button>
     }
     return (
       <Navbar

@@ -1,48 +1,70 @@
-import React from 'react';
+import React from "react";
 
-const RestaurantView = (props) => (
-  <div>
-    <label style={{ fontWeight: 'bold' }} for="res-cuisine">
-      Categories:
-    </label>
-    <p>{props.categories}</p>
+const RestaurantView = props => {
+  const cats = [];
 
-    <label style={{ fontWeight: 'bold' }} for="res-cuisine">
-      Menu:
-    </label>
+  props.categories.split(";").forEach(c => {
+    cats.push(
+      <span
+        style={{ margin: "5px 5px", padding: "8px" }}
+        class="badge badge-secondary"
+      >
+        {c}
+      </span>
+    );
+  });
+
+  return (
     <div>
-      <button
-        type="button"
-        className="btn btn-primary"
-        style={{ margin: '0 10px 10px 0' }}>
-        Food Menu
-      </button>
-      <button
-        type="button"
-        className="btn btn-primary"
-        style={{ margin: '0 10px 10px 0' }}>
-        Drinks Menu
-      </button>
-    </div>
+      <label style={{ fontWeight: "bold" }}>Categories:</label>
+      <div
+        style={{
+          marginBottom: ".5rem",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "flex-start",
+          fontSize: "18px"
+        }}
+      >
+        {cats}
+      </div>
 
-    <label style={{ fontWeight: 'bold' }} for="res-cuisine">
-      Opening hours:
-    </label>
-    <p>Mon-Tue: 5-11pm</p>
+      <label style={{ fontWeight: "bold" }}>Menu:</label>
+      <div>
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ margin: "0 10px 10px 0" }}
+        >
+          Food Menu
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ margin: "0 10px 10px 0" }}
+        >
+          Drinks Menu
+        </button>
+      </div>
 
-    <label style={{ fontWeight: 'bold' }} for="res-cuisine">
-      Address:
-    </label>
-    <div style={{ display: 'flex' }}>
-      <div style={{lineHeight:"38px", marginRight:"10px"}}>{props.address}</div>
-      <button
-        type="button"
-        className="btn btn-primary"
-        style={{ margin: '0 10px 10px 0' }}>
-        View on map
-      </button>
+      <label style={{ fontWeight: "bold" }}>Opening hours:</label>
+      <p>Mon-Tue: 5-11pm</p>
+
+      <label style={{ fontWeight: "bold" }}>Address:</label>
+      <div style={{ display: "flex" }}>
+        <div style={{ lineHeight: "38px", marginRight: "10px" }}>
+          {props.address}
+        </div>
+        <button
+          type="button"
+          className="btn btn-info"
+          style={{ margin: "0 10px 10px 0" }}
+        >
+          View on map
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default RestaurantView;

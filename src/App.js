@@ -26,13 +26,20 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Header login={this.login} user={this.state.user}/>
+          <Header login={this.login} user={this.state.user} />
           <div className="container main-content">
             <div className="row">
               <div className="col-md-12" style={{ paddingTop: "70px" }}>
                 <Switch>
-                  <Route exact path="/" component={Home} />
-                  <Route path="/restaurants" component={Restaurants} />
+                  <Route
+                    exact
+                    path="/"
+                    render={() => <Home user={this.state.user} />}
+                  />
+                  <Route
+                    path="/restaurants"
+                    render={() => <Restaurants user={this.state.user} />}
+                  />
                 </Switch>
               </div>
             </div>

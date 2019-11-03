@@ -20,3 +20,9 @@
 .App-link {
   color: #09d3ac;
 }
+
+@media only screen and (max-width: 600px) {
+  .desktop-only {
+    display: none;
+  }
+}
