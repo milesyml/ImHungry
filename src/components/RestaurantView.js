@@ -3,11 +3,12 @@ import React from "react";
 const RestaurantView = props => {
   const cats = [];
 
-  props.categories.split(";").forEach(c => {
+  props.categories.split(";").forEach((c, i) => {
     cats.push(
       <span
+        key={i}
         style={{ margin: "5px 5px", padding: "8px" }}
-        class="badge badge-secondary"
+        className="badge badge-secondary"
       >
         {c}
       </span>

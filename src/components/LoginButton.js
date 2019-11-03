@@ -28,7 +28,6 @@ class LoginButton extends Component {
           type="button"
           className="btn btn-success"
           onClick={this.toggle}
-          // onClick={() => this.props.login("Alice")}
         >
           Login
         </button>

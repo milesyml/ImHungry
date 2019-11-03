@@ -60,7 +60,7 @@ class ViewRestaurantButton extends Component {
             />
           </ModalBody>
           <div
-            class="modal-footer"
+            className="modal-footer"
             style={{
               display: "flex",
               flexDirection: "column",
@@ -68,19 +68,19 @@ class ViewRestaurantButton extends Component {
               justifyContent: "space-between"
             }}
           >
-            <label style={{ fontWeight: "bold" }} for="footer">
+            <label style={{ fontWeight: "bold" }}>
               Book now:
             </label>
             <div style={{ display: "grid", gridTemplateColumns: "40% 60%", margin: "10px", gridRowGap: "10px"}}>
               <label>No. of people:</label>
-              <input type="number" class="form-control" id="booking-pax" />
+              <input type="number" className="form-control" id="booking-pax" />
               <label>Date:</label>
-              <input type="date" class="form-control" id="booking-pax" />
+              <input type="date" className="form-control" id="booking-pax" />
               <label>Time</label>
-              <input type="time" class="form-control" id="booking-pax" />
+              <input type="time" className="form-control" id="booking-pax" />
             </div>
 
-            <button type="button" class="btn btn-success">
+            <button type="button" className="btn btn-success">
               Book
             </button>
           </div>

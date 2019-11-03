@@ -43,7 +43,7 @@ const LoginForm = props => {
             type="button"
             className="btn btn-success col-sm-12"
             onClick={() => {
-              if (user.value == "Alice" || user.value == "Bob") {
+              if (user.value == "Alice" || user.value == "Bob" || user.value == "Candy") {
                 props.login(user.value);
                 props.toggle();
               }

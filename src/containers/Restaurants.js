@@ -1,47 +1,24 @@
 import React from "react";
 import Restaurant from "../components/Restaurant.js";
-import Alice from "../secret/alice.js";
-import Bob from "../secret/bob.js";
-import Default from "../secret/default.js";
 
 const Restaurants = props => {
   const restaurants = [];
-  const user = props.user;
-
-  if (user == "Alice") {
-    Alice.restaurants.forEach(r => {
-      const rest = (
-        <Restaurant
-          name={r.name}
-          address={r.address}
-          categories={r.categories}
-        />
-      );
-      restaurants.push(rest);
-    });
-  } else if (user == "Bob") {
-    Bob.restaurants.forEach(r => {
-      const rest = (
-        <Restaurant
-          name={r.name}
-          address={r.address}
-          categories={r.categories}
-        />
-      );
-      restaurants.push(rest);
-    });
-  } else {
-    Default.restaurants.forEach(r => {
-      const rest = (
-        <Restaurant
-          name={r.name}
-          address={r.address}
-          categories={r.categories}
-        />
-      );
-      restaurants.push(rest);
-    });
-  }
+  console.log("In Restaurants.js, user: " + props.user);
+  console.log(
+    "In Restaurants.js, number of restaurants in props: " +
+      props.restaurants.length
+  );
+  props.restaurants.forEach((r, i) => {
+    const rest = (
+      <Restaurant
+        key={i}
+        name={r.name}
+        address={r.address}
+        categories={r.categories}
+      />
+    );
+    restaurants.push(rest);
+  });
 
   return (
     <div>

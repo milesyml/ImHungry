@@ -6,11 +6,12 @@ import "../App.css";
 const Restaurant = ({ name, address, categories }) => {
   const cats = [];
 
-  categories.split(";").forEach(c => {
+  categories.split(";").forEach((c, i) => {
     cats.push(
       <span
+        key={i}
         style={{ margin: "5px 5px", padding: "8px" }}
-        class="badge badge-secondary"
+        className="badge badge-secondary"
       >
         {c}
       </span>
