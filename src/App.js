@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router";
 import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter } from 'react-router-dom'
 
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import Home from "./containers/Home.js";
 import Restaurants from "./containers/Restaurants.js";
+
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +26,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <HashRouter>
         <div>
           <Header login={this.login} user={this.state.user} />
           <div className="container main-content">
@@ -46,7 +48,7 @@ class App extends Component {
           </div>
           <Footer />
         </div>
-      </Router>
+      </HashRouter>
     );
   }
 }

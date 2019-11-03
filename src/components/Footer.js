@@ -5,11 +5,11 @@ const Footer = () => (
     <div className="container bg-black">
       <span className="text-muted">
         &#169;
-        {`${new Date().getFullYear()} Company Inc. All Rights Reserved`}
+        {`${new Date().getFullYear()} `}
       </span>
       <div className="pull-right">
         <a
-          href="https://github.com/martindavid/hackathon-starter"
+          href="https://github.com/blewjy/ImHungry"
           target="blank"
         >
           Github
