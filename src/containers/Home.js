@@ -49,52 +49,6 @@ class Home extends Component {
     }
   }
 
-  // Give you array of restaurants
-  getRestaurants(user) {
-    if (USE_API) {
-      // console.log("In Home.js, using API to getRestaurants...");
-      // if (user == "Alice" || user == "Bob" || user == "Candy") {
-      //   var id = "";
-      //   if (user == "Alice") {
-      //     id = alice_id;
-      //   } else if (user == "Bob") {
-      //     id = bob_id;
-      //   } else if (user == "Candy") {
-      //     id = candy_id;
-      //   }
-
-      //   return fetch(
-      //     "https://cors-anywhere.herokuapp.com/http://jy-ftp.southeastasia.cloudapp.azure.com/web/predict/" +
-      //       id,
-      //     {
-      //       headers: {
-      //         Origin: "null"
-      //       }
-      //     }
-      //   )
-      //     .then(response => response.json())
-      //     .then(responseData => {
-      //       return responseData;
-      //     });
-      // } else {
-      //   return Default.restaurants;
-      // }
-    } else {
-      console.log("In Home.js, NOT using API to getRestaurants...");
-
-      if (user == "Alice") {
-        return Alice.restaurants;
-      } else if (user == "Bob") {
-        return Bob.restaurants;
-      } else if (user == "Candy") {
-        return Default.restaurants;
-      } else {
-        // Default
-        return Default.restaurants;
-      }
-    }
-  }
-
   getRandomRestaurant(restaurants) {
     console.log("In Home.js, getting random restaurant...");
     const chosen = restaurants[

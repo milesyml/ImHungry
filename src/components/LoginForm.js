@@ -1,10 +1,10 @@
 import React from "react";
-import { Button, Form } from "reactstrap";
+import { Form } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import { tsPropertySignature } from "@babel/types";
 
 const LoginForm = props => {
   let user;
+  let button;
 
   return (
     <div className="form-signin">
@@ -41,11 +41,21 @@ const LoginForm = props => {
         <NavLink to="">
           <button
             type="button"
+            ref={btn => {
+              button = btn;
+            }}
             className="btn btn-success col-sm-12"
             onClick={() => {
-              if (user.value == "Alice" || user.value == "Bob" || user.value == "Candy") {
-                props.login(user.value);
-                props.toggle();
+              if (
+                user.value == "Alice" ||
+                user.value == "Bob" ||
+                user.value == "Candy"
+              ) {
+                button.setAttribute("disabled", "disabled");
+                button.innerHTML = "Logging in..."
+                props.login(user.value).then(() => {
+                  props.toggle();
+                });
               }
             }}
           >
