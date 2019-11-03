@@ -17,7 +17,14 @@ class Header extends Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
+      user: ""
     };
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      user: props.user
+    })
   }
 
   toggle() {
@@ -28,8 +35,15 @@ class Header extends Component {
     });
   }
 
+
   render() {
     const { isOpen } = this.state;
+    var button;
+    if (this.state.user == "") {
+      button = <LoginButton login={this.props.login}/>
+    } else {
+      button = <button type="button" class="btn btn-light" disabled="true">Welcome, {this.state.user}</button>
+    }
     return (
       <Navbar
         className="navbar-static-top"
@@ -65,7 +79,7 @@ class Header extends Component {
           </Nav>
           <Nav navbar className="justify-content-end">
             <NavItem>
-              <LoginButton />
+              {button}
             </NavItem>
           </Nav>
         </Collapse>

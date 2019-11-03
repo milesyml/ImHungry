@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import {
- Modal, ModalHeader, ModalBody, ModalFooter,
-} from 'reactstrap';
-import LoginForm from './LoginForm';
+import React, { Component } from "react";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import LoginForm from "./LoginForm";
 
 class LoginButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false,
+      modal: false
     };
 
     this.toggle = this.toggle.bind(this);
@@ -17,7 +15,7 @@ class LoginButton extends Component {
   toggle() {
     const { modal } = this.state;
     this.setState({
-      modal: !modal,
+      modal: !modal
     });
   }
 
@@ -26,13 +24,18 @@ class LoginButton extends Component {
     const { className } = this.props;
     return (
       <div>
-        <button type="button" className="btn btn-success" onClick={this.toggle}>
+        <button
+          type="button"
+          className="btn btn-success"
+          onClick={this.toggle}
+          // onClick={() => this.props.login("Alice")}
+        >
           Login
         </button>
         <Modal isOpen={modal} toggle={this.toggle} className={className}>
           <ModalHeader toggle={this.toggle}>Login</ModalHeader>
           <ModalBody>
-            <LoginForm />
+            <LoginForm toggle={this.toggle} login={this.props.login}/>
           </ModalBody>
           <ModalFooter>
             <span className="text-center">Do not have an account? Sign Up</span>

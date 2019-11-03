@@ -8,11 +8,12 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
     };
 
     this.toggle = this.toggle.bind(this);
   }
+
 
   toggle() {
     const { modal } = this.state;
